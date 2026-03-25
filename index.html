@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VIRORA reselling | Cheats</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8a2be2;
+            --primary-pink: #ff1493;
+            --bg-dark: #0a0a0a;
+            --card-bg: rgba(20, 20, 20, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* BEWEGLICHER GITTER-HINTERGRUND */
+        .grid-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(to right, rgba(138, 43, 226, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 20, 147, 0.15) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(20deg);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink), var(--primary-purple));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-flow 5s linear infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+            opacity: 0.8;
+            max-width: 600px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: transparent;
+            border: 2px solid var(--primary-pink);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--primary-pink);
+            box-shadow: 0 0 30px var(--primary-pink);
+            transform: scale(1.05);
+        }
+
+        /* DER SCROLL INDIKATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            /* Wichtig für das geschmeidige Ausblenden */
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            pointer-events: none;
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid var(--primary-pink);
+            border-right: 2px solid var(--primary-pink);
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
+            40% {transform: translateY(-10px) rotate(45deg);}
+            60% {transform: translateY(-5px) rotate(45deg);}
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 100px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            background: linear-gradient(to bottom, transparent, #000);
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <section class="hero">
+        <h1 id="main-title">VIRORA Reselling</h1>
+        <p class="subtitle">High-End Cheats | Scripts and Mods.</p>
+        
+        <a href="home.html" class="btn">Jetzt Starten</a>
+
+        <div class="scroll-indicator" id="scroll-indicator">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>High Performance</h3>
+            <p>High Performance for Loader.</p>
+        </div>
+        <div class="card">
+            <h3>Newest Cheats</h3>
+            <p>Newest Cheats (proofed). Guaranteed mostly safe.</p>
+        </div>
+        <div class="card">
+            <h3>Any Language</h3>
+            <p>Support for all major programming languages.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 VIRORA Reselling. ALL SYSTEMS OPERATIONAL.
+    </footer>
+
+    <script>
+        const grid = document.getElementById('grid');
+        const scrollIndicator = document.getElementById('scroll-indicator');
+
+        // MAUS-BEWEGUNG FÜR DAS GITTER
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 30;
+            const y = (window.innerHeight / 2 - e.pageY) / 30;
+            grid.style.transform = `rotateX(20deg) translateX(${x}px) translateY(${y}px)`;
+        });
+
+        // GESCHMEIDIGES AUSBLENDEN BEIM SCROLLEN
+        window.addEventListener('scroll', () => {
+            let scrollY = window.scrollY;
+            
+            // Berechnet die Sichtbarkeit (bei 150px Scroll ist er komplett weg)
+            let opacity = 1 - (scrollY / 150);
+            
+            // Verhindert negative Werte
+            if (opacity < 0) opacity = 0;
+            
+            // Wendet Opacity und einen leichten Scale-Effekt an
+            scrollIndicator.style.opacity = opacity;
+            scrollIndicator.style.transform = `translateX(-50%) translateY(${scrollY * 0.2}px) scale(${0.8 + opacity * 0.2})`;
+            
+            // Optional: Klickbarkeit entfernen, wenn unsichtbar
+            if (opacity <= 0) {
+                scrollIndicator.style.pointerEvents = 'none';
+            } else {
+                scrollIndicator.style.pointerEvents = 'all';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NitroHost | Preise & Kontakt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8a2be2;
+            --primary-pink: #ff1493;
+            --bg-dark: #0a0a0a;
+            --card-bg: rgba(20, 20, 20, 0.85); /* Transparent, damit Gitter sichtbar ist */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* GITTER-HINTERGRUND (Gleich wie index.html) */
+        .grid-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .grid {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(to right, rgba(138, 43, 226, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 20, 147, 0.15) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(20deg);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* NAVIGATION */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-weight: 900; color: var(--primary-pink); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* CONTENT */
+        .container { padding: 80px 5% 40px 5%; max-width: 1200px; margin: 0 auto; }
+
+        h2 { 
+            font-size: 3rem; 
+            text-align: center; 
+            margin-bottom: 50px; 
+            text-transform: uppercase; 
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* PREIS-KARTEN */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+        }
+
+        .price-card:hover { 
+            border-color: var(--primary-pink); 
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+        }
+
+        .price-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .price { font-size: 3rem; font-weight: 900; color: var(--primary-pink); margin: 20px 0; }
+        .price span { font-size: 1rem; color: #888; }
+
+        .features-list { list-style: none; padding: 0; margin: 30px 0; color: #ccc; }
+        .features-list li { margin: 12px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+        .order-btn {
+            display: block;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink));
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-purple); }
+
+        /* KONTAKT */
+        .contact-section {
+            margin-top: 100px;
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .discord-btn {
+            display: inline-block;
+            background: #5865F2;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .discord-btn:hover { background: #4752c4; transform: rotate(-2deg) scale(1.1); }
+
+        footer { text-align: center; padding: 60px; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <nav>
+        <div class="logo">VIRORA Reselling</div>
+        <a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem; font-weight: bold; text-transform: uppercase;">&larr; Zurück</a>
+    </nav>
+
+    <div class="container">
+        <h2>Our cheat packs</h2>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Cheat Normal</h3>
+                <div class="price">1.99€<span>/mtl.</span></div>
+                <ul class="features-list">
+                    <li>Normal Features</li>
+                    <li>You won't get banned 90% of the time.</li>
+                    <li>24/7 VIP Support</li>
+                    <li>Free Spoofing</li>
+                </ul>
+                <a href="https://discord.gg/n9JKHm6uVw" class="order-btn">Kaufen</a>
+            </div>
+
+            <div class="price-card" style="border-color: var(--primary-purple);">
+                <h3>Cheat Premium</h3>
+                <div class="price">3.99€<span>/mtl.</span></div>
+                <ul class="features-list">
+                    <li>Premium Features</li>
+                    <li>You won't get banned 90% of the time.</li>
+                    <li>24/7 VIP Support</li>
+                    <li>Free Spoofing</li>
+                </ul>
+                <a href="https://discord.gg/n9JKHm6uVw" class="order-btn">Kaufen</a>
+            </div>
+
+            <div class="price-card">
+                <h3>Cheat Lifetime</h3>
+                <div class="price">9.99€<span>/OTP.</span></div>
+                <ul class="features-list">
+                    <li>Lifetime</li>
+                    <li>You won't get banned 90% of the time.</li>
+                    <li>24/7 VIP Support</li>
+                </ul>
+                <a href="https://discord.gg/n9JKHm6uVw" class="order-btn">Kaufen</a>
+            </div>
+        </div>
+
+        <section class="contact-section">
+            <h2>Support benötigt?</h2>
+            <p>Tritt unserem offiziellen Discord-Server bei, um Hilfe zu erhalten oder individuelle Angebote anzufragen.</p>
+            <a href="https://discord.gg/n9JKHm6uVw" class="discord-btn">Discord beitreten</a>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2024 VIRORA Reselling - DEIN BOT verdient das Beste.
+    </footer>
+
+    <script>
+        // MAUS-BEWEGUNG (Exakt wie auf index.html)
+        const grid = document.getElementById('grid');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 30;
+            const y = (window.innerHeight / 2 - e.pageY) / 30;
+            
+            grid.style.transform = `rotateX(20deg) translateX(${x}px) translateY(${y}px)`;
+        });
+    </script>
+</body>
+</html>
