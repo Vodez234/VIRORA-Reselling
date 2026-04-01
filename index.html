@@ -3,251 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> VIRORA reselling | Cheats</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>777 | Best Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-purple: #8a2be2;
-            --primary-pink: #ff1493;
-            --bg-dark: #0a0a0a;
-            --card-bg: rgba(20, 20, 20, 0.8);
+        :root { --accent: #9333ea; --bg: #050505; }
+        body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+
+        #canvas-shader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; filter: contrast(120%) brightness(70%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: white;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* BEWEGLICHER GITTER-HINTERGRUND */
-        .grid-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            perspective: 1000px;
-            overflow: hidden;
-        }
-
-        .grid {
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background-image: 
-                linear-gradient(to right, rgba(138, 43, 226, 0.15) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 20, 147, 0.15) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: rotateX(20deg);
-            transition: transform 0.1s ease-out;
-        }
-
-        /* HERO SECTION */
-        .hero {
+        .hero-section {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
             position: relative;
         }
 
-        h1 {
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink), var(--primary-purple));
-            background-size: 200% auto;
+        .hero-title {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem); /* Kleiner gemacht für mehr Eleganz */
+            line-height: 1;
+            letter-spacing: -3px;
+            background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.2) 150%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradient-flow 5s linear infinite;
+            z-index: 10;
         }
 
-        @keyframes gradient-flow {
-            0% { background-position: 0% center; }
-            50% { background-position: 100% center; }
-            100% { background-position: 0% center; }
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-top: 10px;
-            opacity: 0.8;
-            max-width: 600px;
-        }
-
-        .btn {
-            margin-top: 30px;
-            padding: 15px 40px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: white;
-            background: transparent;
-            border: 2px solid var(--primary-pink);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background: var(--primary-pink);
-            box-shadow: 0 0 30px var(--primary-pink);
-            transform: scale(1.05);
-        }
-
-        /* DER SCROLL INDIKATOR */
-        .scroll-indicator {
+        .outlined-text {
             position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            color: rgba(255, 255, 255, 0.5);
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            /* Wichtig für das geschmeidige Ausblenden */
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            font-family: 'Syncopate', sans-serif;
+            -webkit-text-stroke: 1px rgba(147, 51, 234, 0.2);
+            color: transparent;
+            font-size: 15vw;
+            z-index: -1;
+            white-space: nowrap;
             pointer-events: none;
+            text-transform: uppercase;
         }
 
-        .arrow {
-            width: 20px;
-            height: 20px;
-            border-bottom: 2px solid var(--primary-pink);
-            border-right: 2px solid var(--primary-pink);
-            transform: rotate(45deg);
+        .premium-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            padding: 2.5rem;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .premium-card:hover {
+            border-color: var(--accent);
+            background: rgba(147, 51, 234, 0.05);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+        }
+
+        .cta-button {
+            border: 1px solid white;
+            padding: 1.2rem 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            transition: all 0.4s;
+            background: transparent;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 40px rgba(255,255,255,0.3);
+        }
+
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.65rem;
+            font-weight: 900;
+        }
+
+        /* Scroll-Indicator */
+        .scroll-down {
+            position: absolute; bottom: 30px;
+            font-size: 0.6rem; letter-spacing: 4px;
+            text-transform: uppercase; opacity: 0.5;
             animation: bounce 2s infinite;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
-            40% {transform: translateY(-10px) rotate(45deg);}
-            60% {transform: translateY(-5px) rotate(45deg);}
-        }
-
-        /* FEATURES SECTION */
-        .features {
-            padding: 100px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            background: linear-gradient(to bottom, transparent, #000);
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            backdrop-filter: blur(5px);
-        }
-
-        .card:hover {
-            border-color: var(--primary-purple);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #444;
-            font-size: 0.8rem;
-        }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
     </style>
 </head>
 <body>
 
-    <div class="grid-container">
-        <div class="grid" id="grid"></div>
-    </div>
+    <canvas id="canvas-shader"></canvas>
 
-    <section class="hero">
-        <h1 id="main-title">VIRORA Reselling</h1>
-        <p class="subtitle">High-End Cheats | Scripts and Mods.</p>
+    <nav class="fixed w-full p-8 flex justify-between items-center z-50">
+        <div class="text-xl font-black tracking-tighter">777<span class="text-purple-600">.</span></div>
+        <div class="hidden md:flex space-x-10">
+            <a href="#features" class="nav-link hover:text-purple-500 transition">Features</a>
+            <a href="https://discord.gg/6ark2MWaaK" class="nav-link hover:text-purple-500 transition">Discord</a>
+        </div>
+        <div class="nav-link opacity-40">EARLY ACCESS</div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="outlined-text" style="top: 1%; left:35%;">777</div>
         
-        <a href="home.html" class="btn">Jetzt Starten</a>
-
-        <div class="scroll-indicator" id="scroll-indicator">
-            <span>Scroll</span>
-            <div class="arrow"></div>
-        </div>
+        <h1 class="hero-title font-black uppercase text-center">777</h1>
+        <p class="max-w-xl text-gray-500 uppercase tracking-[12px] text-[0.6rem] mt-6 mb-10 text-center">Superior Gaming Integration</p>
+        
+        <button class="cta-button" onclick="window.location.href='https://discord.gg/6ark2MWaaK'">Enter the Grid</button>
+        
+        <div class="scroll-down">Scroll for Proofs</div>
     </section>
 
-    <section class="features">
-        <div class="card">
-            <h3>High Performance</h3>
-            <p>High Performance for Loader.</p>
+    <section id="features" class="relative z-10 py-40 px-6 bg-gradient-to-t from-black to-transparent">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-1 w-full max-w-screen-2xl mx-auto">
+            <div class="premium-card">
+                <span class="text-[0.6rem] text-purple-500 font-black mb-4 block uppercase tracking-widest">01. Security</span>
+                <h3 class="text-2xl font-light mb-6 uppercase tracking-wider">Undetected</h3>
+                <p class="text-gray-500 leading-relaxed italic text-sm">"The industry standard for invisibility. 400+ hours on main. Zero detections."</p>
+            </div>
+            <div class="premium-card border-x-0 md:border-x-[1px] border-white/5">
+                <span class="text-[0.6rem] text-purple-500 font-black mb-4 block uppercase tracking-widest">02. Proof</span>
+                <h3 class="text-2xl font-light mb-6 uppercase tracking-wider">Proof</h3>
+                <p class="text-gray-200 leading-relaxed font-bold italic text-sm">"PayPal F&F support is a blessing. 777 is the only real one."</p>
+            </div>
+            <div class="premium-card">
+                <span class="text-[0.6rem] text-purple-500 font-black mb-4 block uppercase tracking-widest">03. Support</span>
+                <h3 class="text-2xl font-light mb-6 uppercase tracking-wider">24/7 Access</h3>
+                <p class="text-gray-500 leading-relaxed italic text-sm">"Doesn't matter if it's 3 AM. The discord staff actually knows what they're doing."</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>Newest Cheats</h3>
-            <p>Newest Cheats (proofed). Guaranteed mostly safe.</p>
-        </div>
-        <div class="card">
-            <h3>Any Language</h3>
-            <p>Support for all major programming languages.</p>
-        </div>
+        
+        <footer class="mt-40 text-center text-[0.5rem] tracking-[5px] text-gray-700 uppercase">
+            &copy; 2024 777 Service - All Rights Reserved
+        </footer>
     </section>
-
-    <footer>
-        &copy; 2024 VIRORA Reselling. ALL SYSTEMS OPERATIONAL.
-    </footer>
 
     <script>
-        const grid = document.getElementById('grid');
-        const scrollIndicator = document.getElementById('scroll-indicator');
+        const canvas = document.getElementById('canvas-shader');
+        const gl = canvas.getContext('webgl');
 
-        // MAUS-BEWEGUNG FÜR DAS GITTER
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 30;
-            const y = (window.innerHeight / 2 - e.pageY) / 30;
-            grid.style.transform = `rotateX(20deg) translateX(${x}px) translateY(${y}px)`;
-        });
+        const vs = `attribute vec4 position; void main() { gl_Position = position; }`;
+        const fs = `
+            precision highp float;
+            uniform float time;
+            uniform vec2 resolution;
 
-        // GESCHMEIDIGES AUSBLENDEN BEIM SCROLLEN
-        window.addEventListener('scroll', () => {
-            let scrollY = window.scrollY;
-            
-            // Berechnet die Sichtbarkeit (bei 150px Scroll ist er komplett weg)
-            let opacity = 1 - (scrollY / 150);
-            
-            // Verhindert negative Werte
-            if (opacity < 0) opacity = 0;
-            
-            // Wendet Opacity und einen leichten Scale-Effekt an
-            scrollIndicator.style.opacity = opacity;
-            scrollIndicator.style.transform = `translateX(-50%) translateY(${scrollY * 0.2}px) scale(${0.8 + opacity * 0.2})`;
-            
-            // Optional: Klickbarkeit entfernen, wenn unsichtbar
-            if (opacity <= 0) {
-                scrollIndicator.style.pointerEvents = 'none';
-            } else {
-                scrollIndicator.style.pointerEvents = 'all';
+            void main() {
+                vec2 uv = gl_FragCoord.xy / resolution.xy;
+                uv.x *= resolution.x / resolution.y;
+                
+                float color = 0.0;
+                color += sin(uv.x * 8.0 + time) * 0.4;
+                color += sin(uv.y * 4.0 + time * 0.6) * 0.4;
+                
+                vec3 finalColor = vec3(0.12, 0.01, 0.25) / abs(sin(time * 0.15 + uv.y + uv.x) * 2.2 - uv.y - color);
+                gl_FragColor = vec4(finalColor * 0.35, 1.0);
             }
-        });
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            return shader;
+        }
+
+        const program = gl.createProgram();
+        gl.attachShader(program, createShader(gl, gl.VERTEX_SHADER, vs));
+        gl.attachShader(program, createShader(gl, gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, -1,1, 1,-1, 1,1]), gl.STATIC_DRAW);
+
+        const pos = gl.getAttribLocation(program, "position");
+        gl.enableVertexAttribArray(pos);
+        gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+
+        const timeLoc = gl.getUniformLocation(program, "time");
+        const resLoc = gl.getUniformLocation(program, "resolution");
+
+        function render(now) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            gl.uniform1f(timeLoc, now * 0.001);
+            gl.uniform2f(resLoc, canvas.width, canvas.height);
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
     </script>
 </body>
 </html>
